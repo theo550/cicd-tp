@@ -29,6 +29,6 @@ describe("GET /hello", () => {
   it("should return Hello world with a numeric name", async () => {
     const res = await request(app).get("/hello/123");
     expect(res.statusCode).toBe(200);
-    expect(res.text).toBe("Hello world!");
+    expect(res.text).toBe("Hello world! From 123");
   });
 });

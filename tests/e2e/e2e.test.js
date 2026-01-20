@@ -43,6 +43,6 @@ describe("E2E GET /hello", () => {
   it("responds with Hello world with a numeric name", async () => {
     const res = await axios.get(`${baseURL}/hello/123`);
     expect(res.status).toBe(200);
-    expect(res.data).toBe("Hello world!");
+    expect(res.data).toBe("Hello world! From 123");
   });
 });
