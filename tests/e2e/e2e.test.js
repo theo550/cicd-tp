@@ -23,13 +23,26 @@ describe("E2E GET /hello", () => {
   });
 
   it("responds with Hello world with a name", async () => {
-
     const res = await axios.get(`${baseURL}/hello/Alice`);
-
     expect(res.status).toBe(200);
-
     expect(res.data).toBe("Hello world! From Alice");
-
   });
 
+  it("responds with Hello world with an empty name", async () => {
+    const res = await axios.get(`${baseURL}/hello/`);
+    expect(res.status).toBe(200);
+    expect(res.data).toBe("Hello world!");
+  });
+
+  it("responds with Hello world with a name containing special characters", async () => {
+    const res = await axios.get(`${baseURL}/hello/Alice%20%26%20Bob`);
+    expect(res.status).toBe(200);
+    expect(res.data).toBe("Hello world! From Alice & Bob");
+  });
+
+  it("responds with Hello world with a numeric name", async () => {
+    const res = await axios.get(`${baseURL}/hello/123`);
+    expect(res.status).toBe(200);
+    expect(res.data).toBe("Hello world!");
+  });
 });
