@@ -59,7 +59,8 @@ jobs:
       - name: Run tests and generate report
         run: npx allure run -- npm test
         
-      - name: Run Allure Action
-        uses: actions/download-artifact@v5
+      - name: Upload Allure results
+        uses: actions/upload-artifact@v4
         with:
-          github-token: ${{ secrets.GITHUB_TOKEN }}
+          name: allure-results
+          path: allure-results
