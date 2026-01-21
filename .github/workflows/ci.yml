@@ -61,3 +61,5 @@ jobs:
 
       - name: Upload Allure results
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: "./allure-report"
