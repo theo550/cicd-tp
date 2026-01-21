@@ -4,34 +4,34 @@ const app = require("../../src/server");
 describe("greeting integration", () => {
 
   describe("GET /hello", () => {
-    it("should return Hey there", async () => {
+    it("should return Hello world!", async () => {
       const res = await request(app).get("/hello");
       expect(res.statusCode).toBe(200);
-      expect(res.text).toBe("Hey there!");
+      expect(res.text).toBe("Hello world!");
     });
 
-    it("should return Hey there with a name", async () => {
+    it("should return Hello world! with a name", async () => {
       const res = await request(app).get("/hello/Alice");
       expect(res.statusCode).toBe(200);
-      expect(res.text).toBe("Hey there! from Alice");
+      expect(res.text).toBe("Hello world! From Alice");
     });
 
-    it("should return Hey there with an empty name", async () => {
+    it("should return Hello world! with an empty name", async () => {
       const res = await request(app).get("/hello/");
       expect(res.statusCode).toBe(200);
-      expect(res.text).toBe("Hey there!");
+      expect(res.text).toBe("Hello world!");
     });
 
-    it("should return Hey there with a name containing special characters", async () => {
+    it("should return Hello world! with a name containing special characters", async () => {
       const res = await request(app).get("/hello/Alice%20%26%20Bob");
       expect(res.statusCode).toBe(200);
-      expect(res.text).toBe("Hey there! from Alice & Bob");
+      expect(res.text).toBe("Hello world! From Alice & Bob");
     });
 
-    it("should return Hey there with a numeric name", async () => {
+    it("should return Hello world! with a numeric name", async () => {
       const res = await request(app).get("/hello/123");
       expect(res.statusCode).toBe(200);
-      expect(res.text).toBe("Hey there! from 123");
+      expect(res.text).toBe("Hello world! From 123");
     });
   });
 
