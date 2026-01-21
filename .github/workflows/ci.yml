@@ -55,6 +55,12 @@ jobs:
         with:
           path: node_modules
           key: ${{ runner.os }}-node-modules-${{ hashFiles('**/package-lock.json') }}
-      - uses: actions/download-artifact@v5
+       
       - name: Run tests and generate report
         run: npx allure run -- npm test
+        
+      - name: Run Allure Action
+        uses: allure-framework/allure-action@v0
+        with:
+          report-directory: "./allure-report"
+          github-token: ${{ secrets.GITHUB_TOKEN }}
