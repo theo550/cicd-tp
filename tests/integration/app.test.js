@@ -36,20 +36,20 @@ describe("greeting integration", () => {
   });
 
   describe('POST /hello', () => {
-    it('should return a greeting with the name from the x-name header', async () => {
+    it('should return a greeting with the name from the request body', async () => {
       const name = 'Alice';
       const response = await request(app)
-        .set('x-name', name)
+        .send({ name })
         .expect(200);
 
       expect(response.text).toBe(`Hey there, ${name}!`);
     });
 
-    it('should return a greeting with the name from the x-name header', async () => {
+    it('should return a greeting with the name from the request body', async () => {
       const name = 'Alice';
       const response = await request(app)
-      .set('x-name', name)
-      .expect(200);
+        .send({ name })
+        .expect(200);
 
       expect(response.text).toBe(`Hey there, ${name}!`)
     });
