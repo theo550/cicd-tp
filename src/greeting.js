@@ -1,9 +1,12 @@
 function getGreeting(name) {
-  const greeting = `Hey there!`;
+  const greeting = `Hello world!`;
 
   if (name && typeof name === "string" && name.trim() !== "") {
-    const wisher = `from ${name}`;
+
+    const wisher = `From ${name}`;
+
     return `${greeting} ${wisher}`;
+
   }
 
   return greeting;

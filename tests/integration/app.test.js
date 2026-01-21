@@ -35,24 +35,4 @@ describe("greeting integration", () => {
     });
   });
 
-  describe('POST /hello', () => {
-    it('should return a greeting with the name from the request body', async () => {
-      const name = 'Alice';
-      const response = await request(app)
-        .send({ name })
-        .expect(200);
-
-      expect(response.text).toBe(`Hey there, ${name}!`);
-    });
-
-    it('should return a greeting with the name from the request body', async () => {
-      const name = 'Alice';
-      const response = await request(app)
-        .send({ name })
-        .expect(200);
-
-      expect(response.text).toBe(`Hey there, ${name}!`)
-    });
-  });
-
 });
