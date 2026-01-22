@@ -3,6 +3,7 @@ module.exports = {
     es2021: true,
     node: true,
     jest: true,
+    module: true,
   },
   extends: ["eslint:recommended"],
   rules: {
